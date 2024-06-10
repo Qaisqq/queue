@@ -31,3 +31,14 @@ class QueueLinkedList():
         self.LL.head = self.LL.head.next
         self.LL.count -= 1
         return first_value
+
+    def is_empty(self):
+        return self.LL.head is None
+
+    def size(self):
+        return self.LL.count
+
+    def peek(self):
+        if self.LL.head is None:
+            return None
+        return self.LL.head.value
