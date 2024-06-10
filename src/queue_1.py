@@ -16,8 +16,12 @@ class Queue:
         #     self.queList[0] = data
         #     self.size +=1
         self.queList.append(data)
+        self.size +=1
 
     def de_queue(self):
         x =  self.queList.pop(0)
+        self.size -=1
         return x
 
+    def is_empty(self):
+        return not self.queList
