@@ -13,13 +13,18 @@ class Queue:
         return x
 
     def is_empty(self):
-        return not self.queList
+        return self.size == 0
 
     def calc_size(self):
         count = 0
         for _ in self.queList:
             count += 1
         return count
+
+    def peek(self):
+        if self.size == 0:
+            raise IndexError
+        return self.queList[0]
 
 
 
