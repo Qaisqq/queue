@@ -1,4 +1,5 @@
-from queue_1 import Queue
+from queue_scratch import Queue
+from queue_list import QueueList
 
 def test_en_queue():
     queue = Queue()
@@ -46,9 +47,19 @@ def test_peek():
     queue.de_queue()
     assert queue.peek() == 2
 
+def test_en_queue_with_list():
+    initial_list = [1, 2, 3]
+    queue = QueueList(initial_list)
+    additional_elements = [4, 5, 6]
+    for element in additional_elements:
+        queue.en_queue(element)
+    expected_list = initial_list + additional_elements
+    assert queue.queList == expected_list
+
 if __name__ == "__main__":
     test_en_queue()
     test_de_queue()
     test_is_empty()
     test_calc_size()
     test_peek()
+    test_en_queue_with_list()
