@@ -1,5 +1,6 @@
 from queue_scratch import Queue
 from queue_list import QueueList
+from queue_linked_list import QueueLinkedList
 
 def test_en_queue():
     queue = Queue()
@@ -47,7 +48,7 @@ def test_peek():
     queue.de_queue()
     assert queue.peek() == 2
 
-def test_en_queue_with_list():
+def test_en_queueL():
     initial_list = [1, 2, 3]
     queue = QueueList(initial_list)
     additional_elements = [4, 5, 6]
@@ -56,10 +57,26 @@ def test_en_queue_with_list():
     expected_list = initial_list + additional_elements
     assert queue.queList == expected_list
 
+def test_en_queueLL():
+    queue = QueueLinkedList()
+    queue.en_queue(1)
+    assert queue.LL.head.value == 1
+    assert queue.LL.count == 1
+
+def test_de_queueLL():
+    queue = QueueLinkedList()
+    queue.en_queue(1)
+    queue.en_queue(2)
+    assert queue.de_queue() == 1
+    assert queue.LL.head.value == 2
+    assert queue.LL.count == 1
+
 if __name__ == "__main__":
     test_en_queue()
     test_de_queue()
     test_is_empty()
     test_calc_size()
     test_peek()
-    test_en_queue_with_list()
+    test_en_queueL()
+    test_en_queueLL()
+    test_de_queueLL()
