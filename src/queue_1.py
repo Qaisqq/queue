@@ -4,17 +4,6 @@ class Queue:
         self.size = 0
         
     def en_queue(self, data):
-        ## I tried making the append method from scatch, but i couldnt figure it out
-        # if self.queList[0] == None:
-        #     self.queList[0] = data
-        #     self.size +=1
-        # else:
-        #     counter = self.size
-        #     while counter != 0:
-        #         self.queList[counter+1] = self.queList[counter]
-        #         counter -=1
-        #     self.queList[0] = data
-        #     self.size +=1
         self.queList.append(data)
         self.size +=1
 
@@ -25,3 +14,23 @@ class Queue:
 
     def is_empty(self):
         return not self.queList
+
+    def calc_size(self):
+        count = 0
+        for _ in self.queList:
+            count += 1
+        return count
+
+
+
+## I tried making the append method from scatch, but i couldnt figure it out
+# if self.queList[0] == None:
+#     self.queList[0] = data
+#     self.size +=1
+# else:
+#     counter = self.size
+#     while counter != 0:
+#         self.queList[counter+1] = self.queList[counter]
+#         counter -=1
+#     self.queList[0] = data
+#     self.size +=1
